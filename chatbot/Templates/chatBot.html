@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<head>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <meta charset="utf-8">
+    <title>聊天機器人介面</title>
+</head>
+<body>
+    <div class="chat_window">
+        <div class="top_menu">
+            <div class="title">
+                聊天機器人
+            </div>
+        </div>
+        <ul class="conversations" ref="conversations_window">
+            <!-- 以下template會將新的對話放到網頁上 -->
+            <template v-for="message in messages">
+                <li class="right message"> 
+                    <div class="avatar"></div> 
+                    <div class="text_wrapper">
+                        <div class="text">
+                            <!-- 為了不讓flask知道下面這個message.me，因此加了raw和endraw -->
+                            {% raw %}
+                            {{message.me}}
+                            {% endraw %}
+                        </div> 
+                    </div> 
+                </li>
+                <li class="left message"> 
+                    <div class="avatar"></div> 
+                    <div class="text_wrapper">
+                        <div class="text">
+                            <!-- 為了不讓flask知道下面這個message.robot，因此加了raw和endraw -->
+                            {% raw %}
+                            {{message.robot}}
+                            {% endraw %}
+                        </div> 
+                    </div> 
+                </li>
+            </template>
+        </ul>  
+        <div class="bottom_wrapper clearfix">
+            <div class="message_input_wrapper">
+                <input class="message_input" placeholder="Type your message here..." v-model="Input" @keyup.enter="key_enter_handler">
+            </div>
+            <div class="send_message" @click="clicked_handler">
+                Send
+            </div>
+        </div>  
+    </div>
+    <script src="{{url_for('static', filename='js/style.js')}}"></script>
+</body>

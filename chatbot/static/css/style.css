@@ -1,0 +1,183 @@
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap");
+  .chat_window {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    background-color: #f8f8f8;
+    overflow: hidden;
+  }
+  
+  .top_menu {
+    background-color: #fff;
+    width: 100%;
+    padding: 20px 0 15px;
+    box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
+  }
+  .top_menu .title {
+    text-align: center;
+    color: #bcbdc0;
+    font-size: 20px;
+  }
+  .top_menu .conversations {
+    position: relative;
+    list-style: none;
+    padding: 20px 10px 0 10px;
+    margin: 0;
+    height: 347px;
+    overflow: scroll;
+  }
+
+  /* all messages */
+  .conversations{
+    position: relative;
+    list-style: none;
+    padding: 20px 10px 0 10px;
+    margin: 0;
+    height: calc(100% - 160px);
+    overflow-y: scroll;
+    direction: ltr;
+  }
+  .conversations .message .avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .conversations .message .text_wrapper {
+    display: inline-block;
+    padding: 20px;
+    border-radius: 6px;
+    max-width: 35vw;
+    position: relative;
+    /* border: solid transparent; */
+  }
+  .conversations .message .text_wrapper .text {
+    font-size: 18px;
+    font-weight: 300;
+    font-family: 'Noto Sans TC', sans-serif;
+    word-break: break-all; /*讓文字能換行*/
+  }
+
+  /* left messages*/
+  .conversations .left.message {
+    list-style-type: none;
+    clear: both;
+    overflow: hidden;
+    margin-bottom: 20px;
+    transition: all 0.5s linear;
+    opacity: 1;
+    position: relative;
+  }
+  .conversations .left.message .avatar {
+    background-color: #f5886e;
+    float: left;
+    position: relative;
+  }
+  .conversations .left.message .text_wrapper {
+    background-color: #ffe6cb;
+    margin-left: 20px;
+  }
+  .conversations .left.message .text_wrapper .text {
+    color: #c48843;
+  }
+  .conversations .left.message .avatar::after{  /*以下用來增加對話框邊邊的三角形*/
+    border-color: transparent #ffe6cb transparent transparent;
+    border-style: solid solid solid solid;
+    /* 設定邊框大小可拼湊出任意形狀的三角形 */
+    border-width: 10px 15px 10px 15px;
+    /* 必須指定，才能顯示內容 */
+    content: "";
+ 
+    left: 83%;
+    bottom: 30%;
+    /* 必須指定，否則會變梯形 */
+    position: absolute;
+  }
+
+  /* right messages */
+  .conversations .right.message {
+    list-style-type: none;
+    clear: both;
+    overflow: hidden;
+    margin-bottom: 20px;
+    transition: all 0.5s linear;
+    opacity: 1;
+  }
+  .conversations .right.message .avatar {
+    background-color: #fdbf68;
+    float: right;
+    position: relative;
+  }
+  .conversations .right.message .text_wrapper {
+    background-color: #c7eafc;
+    margin-right: 20px;
+    float: right;
+  }
+  .conversations .right.message .text_wrapper .text {
+    color: #45829b;
+  }
+  .conversations .right.message .avatar::after{ /*以下用來增加對話框邊邊的三角形*/
+    border-color: transparent transparent transparent #c7eafc;
+    border-style: solid solid solid solid;
+    /* 設定邊框大小可拼湊出任意形狀的三角形 */
+    border-width: 10px 15px 10px 15px;
+    /* 必須指定，才能顯示內容 */
+    content: "";
+ 
+    left: -35%;
+    bottom: 30%;
+    /* 必須指定，否則會變梯形 */
+    position: absolute;
+  }
+
+  .bottom_wrapper {
+    position: relative;
+    width: 100%;
+    background-color: #fff;
+    padding: 20px 20px;
+    position: absolute;
+    bottom: 0;
+  }
+  .bottom_wrapper .message_input_wrapper {
+    display: inline-block;
+    height: 50px;
+    border-radius: 25px;
+    border: 1px solid #bcbdc0;
+    width: calc(100% - 160px);
+    position: relative;
+    padding: 0 20px;
+  }
+  .bottom_wrapper .message_input_wrapper .message_input {
+    border: none;
+    height: 100%;
+    box-sizing: border-box;
+    width: calc(100% - 40px);
+    position: absolute;
+    outline-width: 0;
+    color: gray;
+  }
+  .bottom_wrapper .send_message {
+    width: 140px;
+    height: 50px;
+    display: block;
+    border-radius: 50px;
+    background-color: #a3d063;
+    border: 2px solid #a3d063;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    text-align: center;
+    float: right;
+    font-size: 18px;
+    font-weight: 300;
+    display: inline-block;
+    line-height: 48px;
+  }
+  .bottom_wrapper .send_message:hover {
+    color: #a3d063;
+    background-color: #fff;
+  }
+  

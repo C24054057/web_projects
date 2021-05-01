@@ -46,21 +46,7 @@ new Vue({
     el: ".send_message",
     methods: {
         clicked_handler() {
-            if (_input.Input != ""){ //沒有輸入不給過
-                chat.messages.push({me: _input.Input, robot: ""});
-                //以下傳值到後端
-                axios.post('/', {
-                    frontend: _input.Input
-                })
-                .then(function (response) {
-                    console.log(response);
-                    chat.messages[chat.messages.length-1]['robot'] = response.data.backend // 後端傳過來的值
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
-                _input.Input = "";
-            }
+            _input.key_enter_handler(); //點擊button和按enter鍵的效果一樣
         }
     }
 });
